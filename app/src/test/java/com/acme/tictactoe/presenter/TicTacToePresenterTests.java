@@ -73,6 +73,7 @@ public class TicTacToePresenterTests {
     public void test3inRowDiagonalFromTopLeftToBottomForO() {
 
         clickAndAssertValueAt(0,1, "X");
+        // 원하는 메소드가 특정조건으로 실행되었는지 검증, 수행되지 않았는지 검증(수행했으면 오류로 간주)
         verify(view, never()).showWinner(anyString());
 
         clickAndAssertValueAt(0,0, "O");
@@ -89,6 +90,7 @@ public class TicTacToePresenterTests {
 
         clickAndAssertValueAt(2,2, "O");
         verify(view).showWinner("O");
+
 
     }
 
