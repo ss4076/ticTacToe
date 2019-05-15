@@ -46,7 +46,8 @@ public class TicTacToePresenterTests {
     }
 
     /**
-     * This test will simulate and verify o is the winner.
+     * Presenter 테스트 - 1
+     * x가 게임에서 이기는 테스트
      *
      *    X | X | X
      *    O |   |
@@ -54,15 +55,17 @@ public class TicTacToePresenterTests {
      */
     @Test
     public void test3inRowAcrossTopForX() {
-
+        // mock 인스턴스를 생성하여
         board = mock(Board.class);
+//        board = new Board();
         board.mark(0,0); // x
         when(board.isValid(0,0)).thenReturn(true);
         assertEquals(true, board.isValid(0,0));
 
 
         clickAndAssertValueAt(0,0, "X");
-        verify(view, never()).showWinner(anyString());  // 메소드가 호출되지 않았는지 검증
+        // showWinner 메소드가 호출되지 않았는지 검증 - 수행되었으면 오류로 간주
+        verify(view, never()).showWinner(anyString());
 
         clickAndAssertValueAt(1,0, "O");
         verify(view, never()).showWinner(anyString());
@@ -73,6 +76,7 @@ public class TicTacToePresenterTests {
         clickAndAssertValueAt(2,1, "O");
         verify(view, never()).showWinner(anyString());
 
+        // showWinner 메소드가 호출되었는지 검증 - 수행되지 않았으면 오류로 간주
         clickAndAssertValueAt(0,2, "X");
         verify(view).showWinner("X");
 
@@ -80,7 +84,8 @@ public class TicTacToePresenterTests {
 
 
     /**
-     * This test will simulate and verify x is the winner.
+     * Model 테스트 - 2
+     * O이 게임에서 이기는 테스트
      *
      *    O | X | X
      *      | O |

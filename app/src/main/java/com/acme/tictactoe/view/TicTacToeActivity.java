@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.acme.tictactoe.R;
@@ -21,17 +22,20 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeVie
     private ViewGroup buttonGrid;
     private View winnerPlayerViewGroup;
     private TextView winnerPlayerLabel;
-
+    private EditText editStartNotify;
     TicTacToePresenter presenter = new TicTacToePresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tictactoe);
+        editStartNotify= (EditText)findViewById(R.id.editStartNotify);
         winnerPlayerLabel = (TextView) findViewById(R.id.winnerPlayerLabel);
         winnerPlayerViewGroup = findViewById(R.id.winnerPlayerViewGroup);
         buttonGrid = (ViewGroup) findViewById(R.id.buttonGrid);
         presenter.onCreate();
+
+//        editStartNotify.setVisibility(View.INVISIBLE);
     }
 
     @Override

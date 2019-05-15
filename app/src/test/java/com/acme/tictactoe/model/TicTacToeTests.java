@@ -19,7 +19,8 @@ public class TicTacToeTests {
     }
 
     /**
-     * This test will simulate and verify x is the winner.
+     * Model 테스트 - 1
+     * x가 게임에서 이기는 테스트
      *
      *    X | X | X
      *    O |   |
@@ -44,9 +45,9 @@ public class TicTacToeTests {
         assertEquals(Player.X, board.getWinner());
     }
 
-
     /**
-     * This test will simulate and verify o is the winner.
+     * Model 테스트 - 2
+     * O이 게임에서 이기는 테스트
      *
      *    O | X | X
      *      | O |
@@ -72,7 +73,5 @@ public class TicTacToeTests {
 
         board.mark(2,2); // o
         assertEquals(Player.O, board.getWinner());
-
     }
-
 }
