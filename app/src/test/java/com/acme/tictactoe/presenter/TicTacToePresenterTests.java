@@ -1,6 +1,8 @@
 package com.acme.tictactoe.presenter;
 
 
+import com.acme.tictactoe.model.Board;
+import com.acme.tictactoe.model.Player;
 import com.acme.tictactoe.view.TicTacToeView;
 
 import org.junit.Before;
@@ -9,9 +11,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static junit.framework.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * There are a lot more tests we can and should write but for now, just a few smoke tests.
@@ -22,11 +28,16 @@ public class TicTacToePresenterTests {
     private TicTacToePresenter presenter;
 
     @Mock
-    private TicTacToeView view;
+    private TicTacToeView view; // mock 으로 생성
+
+    @Mock
+    private Board board;
 
     @Before
     public void setup() {
         presenter = new TicTacToePresenter(view);
+
+
     }
 
     private void clickAndAssertValueAt(int row, int col, String expectedValue) {
@@ -44,8 +55,14 @@ public class TicTacToePresenterTests {
     @Test
     public void test3inRowAcrossTopForX() {
 
+        board = mock(Board.class);
+        board.mark(0,0); // x
+        when(board.isValid(0,0)).thenReturn(true);
+        assertEquals(true, board.isValid(0,0));
+
+
         clickAndAssertValueAt(0,0, "X");
-        verify(view, never()).showWinner(anyString());
+        verify(view, never()).showWinner(anyString());  // 메소드가 호출되지 않았는지 검증
 
         clickAndAssertValueAt(1,0, "O");
         verify(view, never()).showWinner(anyString());
@@ -91,6 +108,8 @@ public class TicTacToePresenterTests {
         clickAndAssertValueAt(2,2, "O");
         verify(view).showWinner("O");
 
+        // 한번만 불렸어야 함을 검증
+        verify(view, times(1)).showWinner(anyString());
 
     }
 

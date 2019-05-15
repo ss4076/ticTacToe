@@ -71,7 +71,7 @@ public class Board {
         }
     }
 
-    private boolean isValid(int row, int col ) {
+    public boolean isValid(int row, int col ) {
         if( state == GameState.FINISHED ) {
             return false;
         } else if( isOutOfBounds(row) || isOutOfBounds(col) ) {
