@@ -72,7 +72,7 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeVie
                 return super.onOptionsItemSelected(item);
         }
     }
-
+    // 1. view로 사용자 입력이 들어온다.
     public void onCellClicked(View v) {
 
         Button button = (Button) v;
@@ -80,7 +80,7 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeVie
         int row = Integer.valueOf(tag.substring(0,1));
         int col = Integer.valueOf(tag.substring(1,2));
         Log.i(TAG, "Click Row: [" + row + "," + col + "]");
-
+        // 2. view는 presenter에게 작업을 요청한다.
         presenter.onButtonSelected(row, col);
 
     }

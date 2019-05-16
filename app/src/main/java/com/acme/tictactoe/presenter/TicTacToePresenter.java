@@ -35,12 +35,15 @@ public class TicTacToePresenter implements Presenter {
     }
 
     public void onButtonSelected(int row, int col) {
+        // 3. 필요한 데이터를 Model에 요청하여 응답을 받는다.
         Player playerThatMoved = model.mark(row, col);
 
         if(playerThatMoved != null) {
+            // 4. 응답받은 데이터를 화면에 보여준다.
             view.setButtonText(row, col, playerThatMoved.toString());
 
             if (model.getWinner() != null) {
+                // 4. 응답받은 데이터를 화면에 보여준다.
                 view.showWinner(playerThatMoved.toString());
             }
         }

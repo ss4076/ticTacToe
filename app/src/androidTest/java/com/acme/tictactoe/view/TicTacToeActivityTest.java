@@ -135,6 +135,21 @@ public class TicTacToeActivityTest {
 
     }
 
+
+    /**
+     * View 테스트 - 3(5초 안에 게임 이겨야 성공)
+     * O이 게임에서 이기는 테스트
+     *
+     *    X |   |
+     *      | O |
+     *      |   | X
+     * reset
+     *
+     *    O | X | X
+     *      | O |
+     *      | X | O
+     */
+
     @Test(timeout = 5000)
     public void testCaseXWinAfterReset() {
         onView(withId(R.id.editStartNotify)).perform(typeText("must play within 5 minutes"), closeSoftKeyboard());
@@ -146,27 +161,23 @@ public class TicTacToeActivityTest {
         onView(withId(R.id.action_reset)).perform(click());
 
 
-
-        onView(nthChildOf(withId(R.id.buttonGrid), 0)).perform(click());
+        onView(nthChildOf(withId(R.id.buttonGrid), 1)).perform(click());
         onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("")));
 
-        onView(nthChildOf(withId(R.id.buttonGrid), 1)).perform(click());
+        onView(nthChildOf(withId(R.id.buttonGrid), 0)).perform(click());
         onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("")));
 
         onView(nthChildOf(withId(R.id.buttonGrid), 2)).perform(click());
         onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("")));
 
-        onView(nthChildOf(withId(R.id.buttonGrid), 3)).perform(click());
-        onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("")));
-
         onView(nthChildOf(withId(R.id.buttonGrid), 4)).perform(click());
         onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("")));
 
-        onView(nthChildOf(withId(R.id.buttonGrid), 5)).perform(click());
+        onView(nthChildOf(withId(R.id.buttonGrid), 7)).perform(click());
         onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("")));
 
-        onView(nthChildOf(withId(R.id.buttonGrid), 6)).perform(click());
-        onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("X")));
+        onView(nthChildOf(withId(R.id.buttonGrid), 8)).perform(click());
+        onView(withId(R.id.winnerPlayerLabel)).check(matches(withText("O")));
         onView(withId(R.id.winnerLabel)).check(matches(withText("Winner")));
     }
 }

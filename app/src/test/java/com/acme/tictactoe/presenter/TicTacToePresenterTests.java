@@ -59,6 +59,8 @@ public class TicTacToePresenterTests {
         board = mock(Board.class);
 //        board = new Board();
         board.mark(0,0); // x
+
+
         when(board.isValid(0,0)).thenReturn(true);
         assertEquals(true, board.isValid(0,0));
 
