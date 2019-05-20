@@ -1,15 +1,15 @@
 package com.acme.tictactoe.presenter;
 
+import com.acme.tictactoe.MainConstants;
 import com.acme.tictactoe.model.Board;
 import com.acme.tictactoe.model.Player;
-import com.acme.tictactoe.view.TicTacToeView;
 
-public class TicTacToePresenter implements Presenter {
+public class MainPresenter implements MainConstants.Presenter {
 
-    private TicTacToeView view;
+    private MainConstants.View view;
     private Board model;
 
-    public TicTacToePresenter(TicTacToeView view) {
+    public MainPresenter(MainConstants.View view) {
         this.view = view;
         this.model = new Board();
     }

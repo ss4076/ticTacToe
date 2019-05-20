@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.acme.tictactoe.MainConstants;
 import com.acme.tictactoe.R;
-import com.acme.tictactoe.presenter.TicTacToePresenter;
+import com.acme.tictactoe.presenter.MainPresenter;
 
-public class TicTacToeActivity extends AppCompatActivity implements TicTacToeView {
+public class TicTacToeActivity extends AppCompatActivity implements MainConstants.View {
 
     private static String TAG = TicTacToeActivity.class.getName();
 
@@ -23,7 +24,7 @@ public class TicTacToeActivity extends AppCompatActivity implements TicTacToeVie
     private View winnerPlayerViewGroup;
     private TextView winnerPlayerLabel;
     private EditText editStartNotify;
-    TicTacToePresenter presenter = new TicTacToePresenter(this);
+    MainPresenter presenter = new MainPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

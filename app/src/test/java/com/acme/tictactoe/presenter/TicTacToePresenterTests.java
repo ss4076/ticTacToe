@@ -1,9 +1,8 @@
 package com.acme.tictactoe.presenter;
 
 
+import com.acme.tictactoe.MainConstants;
 import com.acme.tictactoe.model.Board;
-import com.acme.tictactoe.model.Player;
-import com.acme.tictactoe.view.TicTacToeView;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,17 +24,17 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class TicTacToePresenterTests {
 
-    private TicTacToePresenter presenter;
+    private MainPresenter presenter;
 
     @Mock
-    private TicTacToeView view; // mock 으로 생성
+    private MainConstants.View view; // mock 으로 생성
 
     @Mock
     private Board board;
 
     @Before
     public void setup() {
-        presenter = new TicTacToePresenter(view);
+        presenter = new MainPresenter(view);
 
 
     }
